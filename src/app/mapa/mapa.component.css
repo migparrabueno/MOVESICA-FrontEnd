@@ -1,0 +1,15 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css");
+.mapa{
+    width:auto;
+    height:500px;
+    margin:0 auto;
+}
+.icon{
+    color: tomato;
+    cursor: pointer;
+}
+
+.icon:hover{
+    color: lightsalmon;
+    cursor: pointer;
+}

@@ -1,0 +1,94 @@
+<div class="container">
+    <div class="row my-2">
+        <div class="col-lg-8 order-lg-2">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a [routerLink]="['/profile']" data-toggle="tab" class="nav-link">Perfil</a>
+                </li>
+                <li class="nav-item">
+                    <a  [routerLink]="['/profileFavs']" data-toggle="tab" class="nav-link">Favoritos</a>
+                </li>
+                <li class="nav-item">
+                    <a [routerLink]="['/profileEdit']"  data-toggle="tab" class="nav-link active">Editar datos</a>
+                </li>
+            </ul>
+            <div class="tab-content py-4">
+                <div class="tab-pane active" id="edit">
+                    <form role="form" novalidate [formGroup]="formulario" (ngSubmit)="onSubmit()">
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Nombre</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" [value]="this.user.nombre" formControlName="nombre">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Apellidos</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" [value]="this.user.apellidos" formControlName="apellidos">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="email" [value]="this.user.email" formControlName="email">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">URL foto perfil</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" [value]="this.user.foto_perfil" formControlName="foto_perfil">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Edad</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="url" [value]="this.user.edad" formControlName="edad">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Código Postal</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" [value]="this.user.codigo_postal" formControlName="codigo_postal">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Nombre de usuario</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" [value]="this.user.user_name" formControlName="user_name">
+                            </div>
+                        </div>
+                        <!-- <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Password</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="password" value="">
+                            </div>
+                        </div> -->
+                        <!-- <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Confirm password</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="password" value="">
+                            </div>
+                        </div> -->
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label"></label>
+                            <div class="col-lg-9">
+                                <input type="reset" class="btn btn-secondary mr-2" value="Cancel">
+                                <input type="submit" class="btn btn-primary" value="Guardar cambios" [disabled]="!formulario.valid">
+                                <p *ngIf="!formulario.valid" class="text-danger"> Rellena todos los campos para guardar los cambios</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 order-lg-1 text-center">
+            <img [src]="this.user.foto_perfil" class="mx-auto img-fluid img-circle d-block" alt="avatar">
+            <h6 class="mt-2">Introduce otra URL para cambiar tu foto</h6>
+            <label class="custom-file">
+                <input type="file" id="file" class="custom-file-input">
+                <span class="custom-file-control"></span>
+            </label>
+        </div>
+    </div>
+</div>
+

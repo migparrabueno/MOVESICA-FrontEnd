@@ -1,0 +1,50 @@
+<div class="Header">
+        <div class="Header-background"></div>
+        <div class="Header-content">
+                <div class="container">
+                    <form novalidate [formGroup]="formulario" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="">Nombre de Usuario</label>
+                    <input type="text" class="form-control" formControlName="nombre">
+                    <p class="error"
+                        *ngIf="formulario.controls['nombre'].errors?.required && formulario.controls['nombre'].touched">
+                        El campo nombre es requerido
+                    </p>
+                    <p class="error"
+                        *ngIf="formulario.controls['nombre'].errors?.maxlength && formulario.controls['nombre'].touched">
+                        El campo nombre debe tener máximo {{formulario.controls['nombre'].errors?.maxlength.requiredLength}}
+                        caracteres. Tú has insertado {{formulario.controls['nombre'].errors?.maxlength.actualLength}}
+                        caracteres.
+                    </p>
+                </div>
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input type="email" class="form-control" formControlName="email">
+                </div>
+                <!-- <div class="form-group">
+                        <label for="">Repite email</label>
+                        <input type="email" class="form-control" formControlName="email_repeat">
+                    </div> -->
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password" class="form-control" formControlName="password">
+                </div>
+                <div class="form-group">
+                    <label for="">Repite Password</label>
+                    <input type="password" class="form-control" formControlName="password_repeat">
+                </div>
+                <div class="form-group">
+                        <label for="">Edad</label>
+                        <input type="number" class="form-control" formControlName="edad">
+                </div>
+                <div class="form-group">
+                        <label for="">Código Postal</label>
+                        <input type="text" class="form-control" formControlName="cpostal">
+                </div>
+                <input type="submit" value="Enviar" [disabled]="!formulario.valid" class="Button">
+            </form>
+            <p class="parrafo mt-2">¿Ya tienes cuenta? <a [routerLink]="['/login']">Entrar</a> </p>
+                </div>
+            </div>
+        
+    </div>

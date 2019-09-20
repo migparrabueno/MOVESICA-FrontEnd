@@ -1,0 +1,12 @@
+<app-header *ngIf="!usuariosService.isUserLogged()"></app-header>
+
+<div class="container buscador">
+  <div class="row">
+    <div class="col-3">
+        <app-form-home (onCancionesFiltradas)="onCanSeleccionadas($event)" (onEstado)="onEstadoFilt($event)"></app-form-home>
+    </div>
+    <div class="col-9">
+        <app-mapa [canciones]="arrCancionesSeleccionadas" [estado]="estadoPadre"></app-mapa>
+    </div>      
+  </div>
+</div>

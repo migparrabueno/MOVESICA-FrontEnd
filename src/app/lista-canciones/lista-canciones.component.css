@@ -1,0 +1,12 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css");
+.fav{
+    color:rgba(251, 255, 0, 0.952);
+}
+.fav:hover{
+    color: rgb(230, 230, 70);
+    cursor: pointer;
+}
+
+.userFav{
+    display:none;
+}

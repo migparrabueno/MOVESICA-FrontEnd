@@ -1,0 +1,59 @@
+<div class="container">
+        <div class="row my-2">
+            <div class="col-lg-8 order-lg-2">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a [routerLink]="['/profile']" data-toggle="tab" class="nav-link">Perfil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a [routerLink]="['/profileFavs']" data-toggle="tab" class="nav-link active">Favoritos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a [routerLink]="['/profileEdit']" data-toggle="tab" class="nav-link">Editar Datos</a>
+                    </li>
+                </ul>
+                <div class="tab-content py-4">
+                    <div class="tab-pane active" id="profile">
+                        <h5 class="mb-3">{{this.user.user_name}}</h5>
+                        <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Año</th>
+                                    <th scope="col">Autor</th>
+                                    <th scope="col">Género</th>
+                                    <th scope="col">Links</th>
+                                    <th scope="col">Eliminar</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let prop of favs">
+                                    <th scope="row">{{prop.nombre}}</th>
+                                    <td>{{prop.anio}}</td>
+                                    <td>{{prop.autor}}</td>
+                                    <td>{{prop.estilo}}</td>
+                                    <td>
+                                        <div style="display:flex;">
+                                            <div><a [href]="prop.youtube" target="_blank"><i class="fab fa-youtube fa-2x fa-lg" style="color:red; cursor:pointer"></i></a></div>
+                                            <div><a [href]="prop.spotify" target="_blank"><i class="fab fa-spotify fa-2x fa-lg ml-2" style="color:green; cursor:pointer"></i></a></div>
+                                        </div>
+                                    </td>
+                                    <td><i class="fas fa-trash-alt fa-lg del" (click)="delFav(prop.id)"></i></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                        <!--/row-->
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 order-lg-1 text-center">
+                <img [src]="this.user.foto_perfil" class="mx-auto img-fluid img-circle d-block" alt="avatar">
+                <h6 class="mt-2"></h6>
+                <label class="custom-file">
+                    <input type="file" id="file" class="custom-file-input">
+                    <span class="custom-file-control"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+

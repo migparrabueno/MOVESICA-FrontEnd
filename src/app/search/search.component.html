@@ -1,0 +1,14 @@
+<body class="background">
+<div class="container">
+    <div class="row">
+      <div class="col-3">
+        <app-sidebar (onCancionesFiltradas)="onCanSeleccionadas($event)" (onEstado)="onEstadoFilt($event)"></app-sidebar>
+      </div>
+      <div class="col-9">
+
+        <app-lista-canciones [canciones]="arrCancionesSeleccionadas" [estado]="estadoPadre"></app-lista-canciones>
+
+      </div>
+    </div>
+  </div>
+</body>

@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-8">
+      <button class="btn btn-primary mr-1 mb-1" (click)="onCambiarPag('prev')" [disabled]="currentPage ==0" *ngIf="!estadoFinal">ANTERIOR</button>
+      <button class="btn btn-primary ml-1 mb-1" (click)="onCambiarPag('next')" [disabled]="currentPage ==numPages" *ngIf="!estadoFinal">SIGUIENTE</button>
+      <button class="btn btn-danger ml-1 mb-1" (click)="reiniciar()" *ngIf="estadoFinal">Reiniciar búsqueda</button>
+  </div>
+  <div class="col-4" *ngIf="!estadoFinal">
+      Página {{currentPage+1}} de {{numPages +1}}
+  </div>
+</div>
+<div class="card border-light mb-3" *ngFor="let cancion of canciones">          
+    <div class="card-header">
+      <div class="col-7" style="float: left;"><p>{{cancion.nombre}} ({{cancion.anio}})</p><small>{{cancion.estilo}}</small></div>
+      <div class="col-5" style="float:right; text-align: right;">
+          <audio controls>
+              <source [src]="cancion.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+            </audio>
+      </div>
+    </div>
+    <div class="card-body">
+      <div style="float:left;">
+          <h5 class="card-title">{{cancion.autor}}</h5>
+          <p class="card-text">Localización: <a [href]="'https://maps.googleapis.com/maps/api/staticmap?center=Madrid&zoom=11&size=600x300&maptype=roadmap&markers=color:red%7Clabel:A%7C'+cancion.latitud+','+cancion.longitud+'&key=AIzaSyAvfQLA0IZSelivxAclOiBPxQ8U4eds85w'" target="blanck">{{cancion.lugar}}</a></p>
+      </div>
+      <div style="float:right;">
+          <i class="fas fa-star fa-2x fa-lg fav" (click)="insertFav(cancion.id)" *ngIf="logued" [ngClass]="{'userFav': isFavorit(cancion.id)}"></i>
+      </div>
+      
+    </div>
+  </div>
+  <button class="btn btn-primary mr-1 mb-1" (click)="onCambiarPag('prev')" [disabled]="currentPage ==0" *ngIf="!estado">ANTERIOR</button>
+  <button class="btn btn-primary ml-1 mb-1" (click)="onCambiarPag('next')" [disabled]="currentPage ==numPages" *ngIf="!estado">SIGUIENTE</button>

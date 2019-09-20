@@ -1,0 +1,18 @@
+.background {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background: linear-gradient(19deg, #21d4fd, #b721ff);
+    transform-origin: 0px 0px;
+    overflow: hidden;
+    z-index: -1;
+  }
+
+.container {
+    background-color: rgba(255,255,255, 0.7);
+    border-radius: 0.5%;
+    padding: 2%;
+    margin-top: 80px;
+    height: auto;
+}
