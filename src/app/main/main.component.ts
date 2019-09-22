@@ -20,12 +20,10 @@ export class MainComponent implements OnInit {
 
   onCanSeleccionadas($event){
     this.arrCancionesSeleccionadas = $event;
-    //console.log(this.arrCancionesSeleccionadas)
   }
 
   onEstadoFilt($event){
     this.estadoPadre = $event;
-    //console.log(this.estadoPadre)
   }
 
 }

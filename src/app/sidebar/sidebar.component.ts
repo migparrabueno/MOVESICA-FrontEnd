@@ -31,11 +31,11 @@ export class SidebarComponent implements OnInit {
   }
 
   onSubmit(){
-    //console.log(this.formulario.value);
+    
     this.onEstado.emit(true);
+
     this.cancionesservice.getByFilter(this.formulario.value)
     .then(result=>{
-      //console.log(result)
       this.onCancionesFiltradas.emit(result);
     })
     .catch(err=>{

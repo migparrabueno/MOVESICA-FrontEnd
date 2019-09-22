@@ -22,7 +22,6 @@ export class ProfileFavsComponent implements OnInit {
         this.usuariosService.getUserById(response['userId'])
         .then((response)=>{
           this.user = response;
-          //console.log(this.user)
         })
         .catch((err)=>{
           console.log(err)
@@ -45,7 +44,7 @@ export class ProfileFavsComponent implements OnInit {
   delFav(idCancion){
     this.cancionesService.delFav(this.user['id'].toString(),idCancion)
     .then(response=>{
-      //console.log(response)
+      alert(`Has eliminado de favoritos la canción.`)
     })
     .catch(err=>{
       console.log(err)
@@ -54,7 +53,6 @@ export class ProfileFavsComponent implements OnInit {
     this.cancionesService.getFavs(this.user['id'])
     .then(result=>{
       this.favs = result;
-      //console.log(this.favs)
     })
     .catch(err=>{
       console.log(err)

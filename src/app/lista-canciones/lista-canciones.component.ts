@@ -42,7 +42,6 @@ export class ListaCancionesComponent implements OnInit {
     this.cancionesService.getAlll()
     .then(response=>{
       this.numPages = Math.floor(response.length/10)
-      //console.log(this.numPages)
     })
     .catch(err=>{
       console.log(err)
@@ -53,7 +52,6 @@ export class ListaCancionesComponent implements OnInit {
         this.usuariosService.getUserById(response['userId'])
         .then((response)=>{
           this.user = response;
-          //console.log(this.user)
         })
         .catch((err)=>{
           console.log(err)
@@ -69,12 +67,12 @@ export class ListaCancionesComponent implements OnInit {
     this.cancionesService.getFavs(this.user['id'])
     .then(result=>{
       this.favs = result;
-      //console.log(this.favs)
     })
     .catch(err=>{
       console.log(err)
     })
   }
+  
 
   onCambiarPag(action){
     if(action == 'prev' && this.currentPage!=0){
@@ -112,7 +110,7 @@ export class ListaCancionesComponent implements OnInit {
   insertFav(idCancion){
     this.cancionesService.anadirFav(this.user['id'].toString(),idCancion)
     .then(response=>{
-      //console.log(response)
+      alert('Canción añadida a favoritos.')
     })
     .catch(err=>{
       console.log(err)
@@ -121,7 +119,6 @@ export class ListaCancionesComponent implements OnInit {
     this.cancionesService.getFavs(this.user['id'])
     .then(result=>{
       this.favs = result;
-      //console.log(this.favs)
     })
     .catch(err=>{
       console.log(err)

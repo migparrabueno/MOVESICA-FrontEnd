@@ -22,14 +22,12 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(){
-    //console.log(this.formulario.value)
     let form = this.formulario.value;
 
     this.usuariosService.loginUser(form)
       .then((response)=>{
         if(response['token']){
           localStorage.setItem('user-token', response['token']); 
-          //console.log(localStorage)
           this.router.navigate(['/profile'])
         }else{
           alert(response['error'])

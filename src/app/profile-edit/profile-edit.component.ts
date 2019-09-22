@@ -22,7 +22,6 @@ export class ProfileEditComponent implements OnInit {
       edad: new FormControl('', Validators.required),
       codigo_postal: new FormControl('', Validators.required),
       user_name:new FormControl('', Validators.required) 
-      /* password:new FormControl('') */
     });
   }
 
@@ -32,7 +31,6 @@ export class ProfileEditComponent implements OnInit {
         this.usuariosService.getUserById(response['userId'])
         .then((response)=>{
           this.user = response;
-          console.log(this.user)
         })
         .catch((err)=>{
           console.log(err)
@@ -45,12 +43,12 @@ export class ProfileEditComponent implements OnInit {
   }
 
   onSubmit(){
-    //console.log(this.formulario.value)
     let form = this.formulario.value;
     console.log(this.user['id'],form);
     this.usuariosService.updateUser(this.user['id'], form)
     .then((response)=>{
       console.log(response)
+      alert('Tu perfil ha sido actualizado')
     })
     .catch(err=>{
       console.log(err)

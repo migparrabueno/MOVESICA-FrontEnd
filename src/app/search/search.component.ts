@@ -23,7 +23,6 @@ export class SearchComponent implements OnInit {
 
   onCanSeleccionadas($event){
     this.arrCancionesSeleccionadas = $event;
-    //console.log(this.arrCancionesSeleccionadas)
   }
 
   onEstadoFilt($event){

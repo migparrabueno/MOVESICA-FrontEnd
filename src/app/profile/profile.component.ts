@@ -20,7 +20,6 @@ export class ProfileComponent implements OnInit {
         this.usuariosService.getUserById(response['userId'])
         .then((response)=>{
           this.user = response;
-          //console.log(this.user)
         })
         .catch((err)=>{
           console.log(err)

@@ -14,7 +14,7 @@ export class NavComponent implements OnInit {
   }
 
   onLogOut(){
-    //borramos el token de localStorage
+    //borra el token de localStorage
     localStorage.removeItem('user-token');
   }
 

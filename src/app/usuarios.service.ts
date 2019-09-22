@@ -47,7 +47,7 @@ export class UsuariosService {
         'authentication': localStorage.getItem('user-token')
     })
     };
-    //console.log(httpOptions)
+    
     return this.http.post(`${this.baseURL}/profile`,{}, httpOptions).toPromise();
   }  
 }
