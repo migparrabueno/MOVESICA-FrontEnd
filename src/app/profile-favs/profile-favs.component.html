@@ -34,11 +34,11 @@
                                     <td>{{prop.estilo}}</td>
                                     <td>
                                         <div style="display:flex;">
-                                            <div><a [href]="prop.youtube" target="_blank"><i class="fab fa-youtube fa-2x fa-lg" style="color:red; cursor:pointer"></i></a></div>
-                                            <div><a [href]="prop.spotify" target="_blank"><i class="fab fa-spotify fa-2x fa-lg ml-2" style="color:green; cursor:pointer"></i></a></div>
+                                            <div><a [href]="prop.youtube" target="_blank" title="Ver en youtube"><i class="fab fa-youtube fa-2x fa-lg" style="color:red; cursor:pointer"></i></a></div>
+                                            <div><a [href]="prop.spotify" target="_blank" title="Link a spotify"><i class="fab fa-spotify fa-2x fa-lg ml-2" style="color:green; cursor:pointer"></i></a></div>
                                         </div>
                                     </td>
-                                    <td><i class="fas fa-trash-alt fa-lg del" (click)="delFav(prop.id)"></i></td>
+                                    <td><i class="fas fa-trash-alt fa-lg del" (click)="delFav(prop.id)" title="Eliminar de favoritos"></i></td>
                                   </tr>
                                 </tbody>
                               </table>
